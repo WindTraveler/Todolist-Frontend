@@ -1,0 +1,136 @@
+:host{
+  color: #222;
+  font-size: 14px;
+}
+
+header {
+  position: relative;
+  margin: 0 35px;
+  padding: 0 40px;
+  height: 60px;
+}
+header #logo {
+  display: inline-block;
+}
+header #logo img {
+  height: 55px;
+}
+header #links {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  margin-top: -9px;
+  font-size: 14px;
+}
+header #links a {
+  text-decoration: none;
+  color: #353535;
+}
+footer {
+  margin-top: 20px;
+  padding: 30px 0;
+}
+footer p {
+  margin-top: 10px;
+  text-align: center;
+}
+.light-user-icon {
+  display: inline-block;
+  background-image: url("data:image/svg+xml;charset=utf8, %3Csvg width='17' height='16' viewBox='0 0 17 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.696 4.92c0 1.843 1.001 2.93 1.52 3.568.014.847.008.8.014 1.062-.627.58-5.224 3.152-5.224 3.897v.933c0 .347-.11.639.64.621H15.1c.719.04.64-.274.64-.621v-.933c0-.745-4.83-3.446-5.395-4.025v-.853c.877-.823 1.662-1.895 1.662-3.739 0-1.913-1.424-3.83-3.634-3.83-2.209 0-3.676 2.006-3.676 3.92z' stroke='%23000' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+  margin-right: 5px;
+  width: 17px;
+  height: 16px;
+  vertical-align: middle;
+}
+.icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  margin-top: -11px;
+  width: 16px;
+  height: 18px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.icon.un {
+  background: url(../../assets/img/sprite.png) 0 0 no-repeat;
+}
+.icon.pwd {
+  background: url(../../assets/img/sprite.png) 0 -22px no-repeat;
+}
+body {
+  border-top: 4px solid #44B549;
+}
+main #banner {
+  position: relative;
+  min-height: 460px;
+  background: url("../../assets/img/banner.jpg") no-repeat center center;
+}
+main #banner #slogan {
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  color: #fff;
+  font-size: 20px;
+}
+main #banner #login_panel {
+  position: absolute;
+  width: 400px;
+  /*height: 300px;*/
+  right: 0;
+  margin-top: 25px;
+  margin-right: 75px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  padding: 35px;
+}
+main #banner #login_panel h3 {
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+}
+main #banner #login_panel form {
+  margin-top: 10px;
+}
+main #banner #login_panel form .login-input-panel .login-input {
+  position: relative;
+  padding: 3px 0 3px 54px;
+  border: 1px solid #e7e7eb;
+  margin-top: -1px;
+}
+main #banner #login_panel form .login-input-panel .login-input input {
+  height: 3em;
+  border: 0;
+  outline: 0;
+  padding: 11px 0;
+  vertical-align: middle;
+  width: 100%;
+}
+main #banner #login_panel form .login-input-panel .login-input input::-webkit-input-placeholder {
+  font-size: 14px;
+  color: #A3A3A3;
+}
+main #banner #login_panel form .login-btn-panel {
+  margin-top: 20px;
+}
+main #banner #login_panel form .login-btn-panel button {
+  font-size: 14px;
+  width: 120px;
+  height: 35px;
+  padding: 0;
+  border: 1px solid #44B549;
+  border-radius: 3px;
+  color: #ffffff;
+  background-color: #44B549;
+}
+main #banner #login_panel form .login-btn-panel button:hover {
+  background-color: #2f9833;
+  cursor: pointer;
+}
+
+#error_msg{
+  color: #e15f63;
+  font-size: 13px;
+  margin-top: 5px;
+}

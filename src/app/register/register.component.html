@@ -1,0 +1,47 @@
+<header>
+  <div id="logo">
+    <img src="../../assets/img/logo.jpg" alt="avengers logo">
+  </div>
+  <div id="links">
+    <a href="/login"><i class="light-user-icon"></i>Log in</a>
+  </div>
+</header>
+
+<main>
+  <div id="banner">
+    <div id="slogan">
+      Record Your Todo List
+    </div>
+    <div id="login_panel">
+      <h3>Register</h3>
+
+      <div id="error_msg">{{ error_msg }}</div>
+
+      <form method="POST" action="/register" onsubmit="return validation()">
+        <div class="login-input-panel">
+          <div class="login-input">
+            <i class="icon un"></i>
+            <input type="email" id="account" name="account" placeholder="Email" required>
+          </div>
+          <div class="login-input">
+            <i class="icon pwd"></i>
+            <input type="password" id="password" name="password" placeholder="Password" required minlength="6">
+          </div>
+          <div class="login-input">
+            <i class="icon pwd"></i>
+            <input type="password" id="confirm" placeholder="Confirm Password" required minlength="6">
+          </div>
+        </div>
+
+        <div class="login-btn-panel">
+          <button type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Final Project - TodoList.</p>
+  <p>All By Avengers.</p>
+</footer>
