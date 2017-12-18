@@ -1,0 +1,42 @@
+/*状态*/
+.hidden{
+  display: none;
+}
+
+.completed{
+  text-decoration: line-through;
+  color: #777777 !important;
+}
+
+.edit{
+  width: 100%;
+  padding: 6px;
+  padding-left: 20px;
+  font-size: 24px;
+  border: 1px solid #999999;
+}
+
+.view label{
+  color: #333;
+  font-size: 24px;
+}
+
+.view .destroy{
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  margin-top: -10px;
+  display: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: url(../../assets/img/destroy.png) no-repeat;
+}
+
+.view:hover .destroy{
+  display: inline;
+}
+
+.view .destroy:hover{
+  background-position: 0 -20px;
+}
