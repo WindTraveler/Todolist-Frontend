@@ -10,6 +10,7 @@ export class TodoService {
 
   private base = "http://localhost:5270/api";
   private todosUrl = this.base + '/todos/';  // URL to web api
+  private compeletedUrl = this.base + "/compeleted/";
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
@@ -92,11 +93,13 @@ export class TodoService {
 
   //更新单个todo
   updateTodo(todo: Todo){
-    const url = `${this.todosUrl}${todo.id}`;
     return this.http
-      .put(url, JSON.stringify(todo), {headers: this.headers})
+      .put(this.todosUrl, JSON.stringify(todo), {headers: this.headers})
       .toPromise()
-      .then(() => this.update())
+      .then(response => {
+        if(response.json().success)
+          this.update();
+      })
       .catch(this.handleError);
   }
 
@@ -107,13 +110,21 @@ export class TodoService {
 
   ///新增一个todo
   addTodo(content){
-    this.res["data"].push({
-      id: this.getRandomInt(0, 1000),
-      content: content,
-      completed: false,
-      deleted: false
-    })
-    this.update();
+    // this.res["data"].push({
+    //   id: this.getRandomInt(0, 1000),
+    //   content: content,
+    //   completed: false,
+    //   deleted: false
+    // })
+    return this.http
+      .post(this.todosUrl, JSON.stringify({content: content}), {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        var newTodo = response.json().data[0];
+        this.res["data"].push(newTodo);
+        this.update();
+      })
+      .catch(this.handleError);
   }
 
   //删除一个todo
@@ -127,8 +138,17 @@ export class TodoService {
   //设置为全部的完成状态
   setAllCompletedState(){
     var flag = !this.res["isAllCompleted"];
-    this.res["data"].forEach(item => item.completed = flag);
-    this.update();
+
+    return this.http
+      .put(this.compeletedUrl, JSON.stringify({
+        "type": (flag) ? "1" : "0"
+      }), {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.res["data"].forEach(item => item.completed = flag);
+        this.update();
+      })
+      .catch(this.handleError);
   }
 
   //设置单个的完成状态

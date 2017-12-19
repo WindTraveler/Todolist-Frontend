@@ -47,6 +47,9 @@ export class TodosComponent implements OnInit {
   }
 
   //事件处理
+
+  //Done
+  // 输入一个新项
   onEnter(event, inputDom) {
     if(inputDom.value.trim()){
       this.todoService.addTodo(inputDom.value);
@@ -59,6 +62,8 @@ export class TodosComponent implements OnInit {
   onToggleAllClick() {
     this.todoService.setAllCompletedState();
   }
+
+
   //部分删除
   onDeleteCompleted() {
     this.todoService.deleteCompleted();
