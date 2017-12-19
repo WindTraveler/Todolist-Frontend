@@ -63,6 +63,7 @@ export class TodoItemComponent implements OnInit {
   }
 
   onCbClick(e) {
+    //todo http请求成功之后再设置完成状态
     this.todo.completed = !this.todo.completed;
     //this.todoService.setCompeltedState(this.id);
     this.todoService.updateTodo(this.todo);

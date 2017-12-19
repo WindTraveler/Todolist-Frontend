@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoService} from "../todo.service";
 import {Todo} from "../entity/todo";
+import {UserService} from "../user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-todos',
   template: `
     <div class="container">
+      <button (click)="onLogout()">Log Out</button>
       <h1>Todos</h1>
       <input #new_todo id="new_todo" type="text" placeholder="What needs to be done?"
              (keydown.enter)="onEnter($event, new_todo)">
@@ -36,7 +39,11 @@ import {Todo} from "../entity/todo";
 export class TodosComponent implements OnInit {
   res: object;
 
-  constructor(private todoService: TodoService) { }
+  constructor(
+    private todoService: TodoService,
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     //this.res = this.todoService.getResponse();
@@ -62,12 +69,21 @@ export class TodosComponent implements OnInit {
   onToggleAllClick() {
     this.todoService.setAllCompletedState();
   }
-
-
   //部分删除
   onDeleteCompleted() {
     this.todoService.deleteCompleted();
     console.log(this.res["data"]);
     //console.log(this.todos);
+  }
+
+  onLogout(){
+    this.userService.logout()
+      .then(response => {
+        if(response.success){
+          this.userService.isLoggedIn = false;
+          //this.userService.setIsLoggedIn(true);
+          this.router.navigate(["/login"])
+        }
+      });
   }
 }

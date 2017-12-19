@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component'
 //服务
 import {TodoService} from "./todo.service";
 import {UserService} from "./user.service";
+import {AuthGuardService} from "./auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import {UserService} from "./user.service";
     AppRoutingModule,
     HttpModule
   ],
-  providers: [TodoService, UserService],
+  providers: [TodoService, UserService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

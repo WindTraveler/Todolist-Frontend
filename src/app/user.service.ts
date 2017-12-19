@@ -8,6 +8,8 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class UserService {
 
+  isLoggedIn : boolean = false;
+
   private base = "http://localhost:5270/api";
   private loginUrl = this.base + '/login/';
   private registerUrl = this.base + '/register/';
@@ -31,6 +33,14 @@ export class UserService {
       .toPromise()
       .then(response => response.json() as object)
       .catch(this.handleError);
+  }
+
+  logout(){
+    return this.http
+      .get(this.logoutUrl)
+      .toPromise()
+      .then(response => response.json() as object)
+      .catch(this.handleError)
   }
 
   private handleError(error: any): Promise<any> {

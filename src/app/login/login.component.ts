@@ -49,6 +49,8 @@ export class LoginComponent implements OnInit {
       this.userService.login(userInfo)
         .then(response =>{
           if(response.success){
+            this.userService.isLoggedIn = true
+            //this.userService.setIsLoggedIn(true);
             this.router.navigate(["/todolist"])
           }
           else {

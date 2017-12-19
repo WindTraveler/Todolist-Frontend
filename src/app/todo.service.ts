@@ -11,6 +11,7 @@ export class TodoService {
   private base = "http://localhost:5270/api";
   private todosUrl = this.base + '/todos/';  // URL to web api
   private compeletedUrl = this.base + "/compeleted/";
+  private  delUrl = this.base + "/delete/";
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
@@ -121,7 +122,7 @@ export class TodoService {
       .toPromise()
       .then(response => {
         var newTodo = response.json().data[0];
-        this.res["data"].push(newTodo);
+        this.res["data"].unshift(newTodo);
         this.update();
       })
       .catch(this.handleError);
@@ -129,10 +130,22 @@ export class TodoService {
 
   //删除一个todo
   deleteTodo(id) {
-    var i = this.res["data"].findIndex(item => item.id === id);
-    console.log(i);
-    this.res["data"].splice(i , 1);
-    this.update();
+    // var i = this.res["data"].findIndex(item => item.id === id);
+    // console.log(i);
+    // this.res["data"].splice(i , 1);
+    // this.update();
+    return this.http
+      .put(this.delUrl, JSON.stringify({"idList": [id]}), {headers: this.headers})
+      .toPromise()
+      .then(response =>{
+        if(response.json().success){
+          var i = this.res["data"].findIndex(item => item.id === id);
+          console.log(i);
+          this.res["data"].splice(i , 1);
+          this.update();
+        }
+      })
+      .catch(this.handleError);
   }
 
   //设置为全部的完成状态
@@ -159,9 +172,26 @@ export class TodoService {
     // this.update();
   }
 
-  //部分删除
+  //批量删除已完成的todo
   deleteCompleted() {
-    this.res["data"] = this.res["data"].filter(item => !item.completed);
-    this.update();
+    var idList = [];
+
+    this.res["data"].forEach(item => {
+      if(item.completed)
+        idList.push(item.id)
+    })
+
+    // this.res["data"] = this.res["data"].filter(item => !item.completed);
+    // this.update();
+
+    return this.http
+      .put(this.delUrl, JSON.stringify({idList: idList}), {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        //response = response.json();
+        this.res["data"] = response.json().data;
+        this.update();
+      })
+      .catch(this.handleError);
   }
 }
