@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class UserService {
 
-  isLoggedIn : boolean = false;
+  //isLoggedIn : boolean = false;
 
   private base = "http://localhost:5270/api";
   private loginUrl = this.base + '/login/';
@@ -28,6 +28,7 @@ export class UserService {
   }
 
   login(userInfo){
+
     return this.http
       .post(this.loginUrl, JSON.stringify(userInfo), {headers: this.headers})
       .toPromise()

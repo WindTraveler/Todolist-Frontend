@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoService} from "../todo.service";
 import {Todo} from "../entity/todo";
+
 import {UserService} from "../user.service";
 import {Router} from "@angular/router";
 
@@ -80,7 +81,7 @@ export class TodosComponent implements OnInit {
     this.userService.logout()
       .then(response => {
         if(response.success){
-          this.userService.isLoggedIn = false;
+          sessionStorage["isLoggedIn"] = false;
           //this.userService.setIsLoggedIn(true);
           this.router.navigate(["/login"])
         }
