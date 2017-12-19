@@ -3,7 +3,7 @@
     <img src="../../assets/img/logo.jpg" alt="avengers logo">
   </div>
   <div id="links">
-    <a href="/register"><i class="light-user-icon"></i>Register now</a>
+    <a routerLink="/register"><i class="light-user-icon"></i>Register now</a>
   </div>
 </header>
 
@@ -15,22 +15,22 @@
     <div id="login_panel">
       <h3>Log in</h3>
 
-      <div id="error_msg">{{ error_msg }}</div>
+      <div id="error_msg">{{ errMsg }}</div>
 
       <form method="POST" action="/login">
         <div class="login-input-panel">
           <div class="login-input">
             <i class="icon un"></i>
-            <input type="email" name="account" placeholder="Email" required>
+            <input type="email" name="username" placeholder="Email" required [(ngModel)]="username">
           </div>
           <div class="login-input pwd">
             <i class="icon pwd"></i>
-            <input type="password" name="password" placeholder="Password" required minlength="6">
+            <input type="password" name="password" placeholder="Password" required minlength="6" [(ngModel)]="pwd">
           </div>
         </div>
 
         <div class="login-btn-panel">
-          <button type="submit">Log in</button>
+          <button type="button" (click)="onLogin()">Log in</button>
         </div>
       </form>
     </div>

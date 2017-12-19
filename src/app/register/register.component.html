@@ -3,7 +3,7 @@
     <img src="../../assets/img/logo.jpg" alt="avengers logo">
   </div>
   <div id="links">
-    <a href="/login"><i class="light-user-icon"></i>Log in</a>
+    <a routerLink="/login"><i class="light-user-icon"></i>Log in</a>
   </div>
 </header>
 
@@ -15,26 +15,26 @@
     <div id="login_panel">
       <h3>Register</h3>
 
-      <div id="error_msg">{{ error_msg }}</div>
+      <div id="error_msg">{{ errMsg }}</div>
 
-      <form method="POST" action="/register" onsubmit="return validation()">
+      <form>
         <div class="login-input-panel">
           <div class="login-input">
             <i class="icon un"></i>
-            <input type="email" id="account" name="account" placeholder="Email" required>
+            <input type="email" id="username" name="username" placeholder="Email" required [(ngModel)]="username">
           </div>
           <div class="login-input">
             <i class="icon pwd"></i>
-            <input type="password" id="password" name="password" placeholder="Password" required minlength="6">
+            <input type="password" id="pwd" name="pwd" placeholder="Password" required minlength="6" [(ngModel)]="pwd">
           </div>
           <div class="login-input">
             <i class="icon pwd"></i>
-            <input type="password" id="confirm" placeholder="Confirm Password" required minlength="6">
+            <input type="password" id="confirm" name="confirm" placeholder="Confirm Password" required minlength="6" [(ngModel)]="confirm">
           </div>
         </div>
 
         <div class="login-btn-panel">
-          <button type="submit">Register</button>
+          <button type="button" (click)="onRegister()">Register</button>
         </div>
       </form>
     </div>

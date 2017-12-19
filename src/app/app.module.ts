@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {AppRoutingModule} from "./app-routing.module";
+import { HttpModule } from '@angular/http'
 
 //组件
 import { AppComponent } from './app.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodosComponent } from './todos/todos.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component'
 
 //服务
 import {TodoService} from "./todo.service";
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component'
+import {UserService} from "./user.service";
 
 @NgModule({
   declarations: [
@@ -22,9 +25,11 @@ import { RegisterComponent } from './register/register.component'
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [TodoService],
+  providers: [TodoService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

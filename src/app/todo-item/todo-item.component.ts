@@ -1,5 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
-import {Todo} from "../todo";
+import {Todo} from "../entity/todo";
 import {TodoService} from "../todo.service";
 
 @Component({
@@ -59,10 +59,13 @@ export class TodoItemComponent implements OnInit {
     this.viewMode();
     //todo 如果内容为空则删除
     //todo 不为空则更新
+    this.todoService.updateTodo(this.todo);
   }
+
   onCbClick(e) {
-    //this.todo.completed = !this.todo.completed;
-    this.todoService.setCompeltedState(this.id);
+    this.todo.completed = !this.todo.completed;
+    //this.todoService.setCompeltedState(this.id);
+    this.todoService.updateTodo(this.todo);
     console.log(e);
     e.stopPropagation();
   }

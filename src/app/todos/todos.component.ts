@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoService} from "../todo.service";
-import {Todo} from "../todo";
+import {Todo} from "../entity/todo";
 
 @Component({
   selector: 'app-todos',
   template: `
-    <div>
+    <div class="container">
       <h1>Todos</h1>
       <input #new_todo id="new_todo" type="text" placeholder="What needs to be done?"
              (keydown.enter)="onEnter($event, new_todo)">
@@ -39,8 +39,11 @@ export class TodosComponent implements OnInit {
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
-    this.res = this.todoService.getResponse();
-    //this.todos = this.res["data"] as Todo[];
+    //this.res = this.todoService.getResponse();
+    this.todoService.getResponse().then(res =>{
+      this.res = res;
+      console.log(this.res)
+    })
   }
 
   //事件处理
