@@ -18,7 +18,7 @@ import {TodoService} from "../todo.service";
       <input class="edit" type="text" #item
              [ngClass]="{hidden: editHide}"
              [(ngModel)]="todo.content"
-             (blur)="onBlur()" 
+             (blur)="onBlur($event)" 
              (keydown.enter)="onBlur()">
     </div>
   `,
@@ -55,11 +55,18 @@ export class TodoItemComponent implements OnInit {
     }, 0);
 
   }
-  onBlur(){
+  onBlur($event){
     this.viewMode();
+
     //todo 如果内容为空则删除
     //todo 不为空则更新
-    this.todoService.updateTodo(this.todo);
+    if($event.target.value){
+      this.todoService.updateTodo(this.todo);
+    }
+    else{
+      this.onDelete();
+    }
+
   }
 
   onCbClick(e) {
