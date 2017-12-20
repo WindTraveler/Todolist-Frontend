@@ -2,13 +2,57 @@
   background-color: #EEEEEE;
 }
 
+header {
+  position: relative;
+  margin: 0 35px;
+  padding: 0 40px;
+  height: 60px;
+}
+header #logo {
+  display: inline-block;
+}
+header #logo img {
+  height: 55px;
+}
+header #links {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  margin-top: -9px;
+  font-size: 14px;
+}
+header #links a {
+  text-decoration: none;
+  color: #353535;
+}
+
+.light-user-icon {
+  display: inline-block;
+  background-image: url("data:image/svg+xml;charset=utf8, %3Csvg width='17' height='16' viewBox='0 0 17 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.696 4.92c0 1.843 1.001 2.93 1.52 3.568.014.847.008.8.014 1.062-.627.58-5.224 3.152-5.224 3.897v.933c0 .347-.11.639.64.621H15.1c.719.04.64-.274.64-.621v-.933c0-.745-4.83-3.446-5.395-4.025v-.853c.877-.823 1.662-1.895 1.662-3.739 0-1.913-1.424-3.83-3.634-3.83-2.209 0-3.676 2.006-3.676 3.92z' stroke='%23000' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+  margin-right: 5px;
+  width: 17px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+
+#banner{
+  min-height: 460px;
+  background: url(../../assets/img/home.jpg);
+  /*background-color: #EEEEEE;*/
+  /*background-size: cover;*/
+  padding: 30px 0;
+}
+
 .container{
   /*width: 100%;*/
-  width: 40%;
+  width: 45%;
   margin: 0 auto;
   background-color: #fff;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
+  border-radius: 3px;
 }
 
 h1{
@@ -68,11 +112,24 @@ footer{
 footer a{
   font-size: 11px;
   line-height: 20px;
-  color: #555;
+  color: #d21928;
   float: right;
   text-decoration: none;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(125, 125, 125, 0.1);
   border-radius: 11px;
   margin-top: 10px;
   padding: 1px 10px;
+}
+
+
+/*页面底部*/
+#footer {
+  margin-top: 20px;
+  padding: 30px 0;
+  color: #222222;
+  font-size: 14px;
+}
+#footer p {
+  margin-top: 10px;
+  text-align: center;
 }

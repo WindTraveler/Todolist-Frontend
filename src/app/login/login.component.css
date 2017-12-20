@@ -59,9 +59,7 @@ footer p {
 .icon.pwd {
   background: url(../../assets/img/sprite.png) 0 -22px no-repeat;
 }
-body {
-  border-top: 4px solid #44B549;
-}
+
 main #banner {
   position: relative;
   min-height: 460px;
