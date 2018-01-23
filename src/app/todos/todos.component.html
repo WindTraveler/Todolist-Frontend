@@ -12,6 +12,9 @@
 <div id="banner">
   <div class="container">
     <!--<button (click)="onLogout()">Log Out</button>-->
+    <div id="introdution">
+      Enter：OK<br>Double click：Edit
+    </div>
     <h1>Todos</h1>
     <input #new_todo id="new_todo" type="text" placeholder="What needs to be done?"
            (keydown.enter)="onEnter($event, new_todo)">

@@ -53,6 +53,7 @@ header #links a {
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
   border-radius: 3px;
+  position: relative;
 }
 
 h1{
@@ -132,4 +133,9 @@ footer a{
 #footer p {
   margin-top: 10px;
   text-align: center;
+}
+
+#introdution{
+  position: absolute;
+  font-size: 14px;
 }
