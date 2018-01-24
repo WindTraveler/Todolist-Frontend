@@ -19,7 +19,7 @@ import {TodoService} from "../todo.service";
              [ngClass]="{hidden: editHide}"
              [(ngModel)]="todo.content"
              (blur)="onBlur($event)" 
-             (keydown.enter)="onBlur()">
+             (keydown.enter)="onBlur($event)">
     </div>
   `,
   styleUrls: ["./todo-item.component.css"]
@@ -48,6 +48,7 @@ export class TodoItemComponent implements OnInit {
   //事件响应
   onDbclick(inputDom) {
     //todo 可以试一下preventDefault方法
+    console.log(inputDom);
     this.editMode();
     //inputDom.focus();
     setTimeout(() => {

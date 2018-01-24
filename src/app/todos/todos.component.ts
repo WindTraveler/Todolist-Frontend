@@ -4,25 +4,27 @@ import {Todo} from "../entity/todo";
 
 import {UserService} from "../user.service";
 import {Router} from "@angular/router";
+import {TodoResInterface} from "../entity/todo-res-interface";
 
 @Component({
   selector: 'app-todos',
   templateUrl: "./todos.component.html",
   styleUrls: ["./todos.component.css"]
 })
+
 export class TodosComponent implements OnInit {
-  res: object;
+  public res: TodoResInterface;
 
   constructor(
     private todoService: TodoService,
     private userService: UserService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     //this.res = this.todoService.getResponse();
     this.todoService.getResponse().then(res =>{
-      this.res = res;
+      this.res = res as TodoResInterface;
       console.log(this.res)
     })
   }

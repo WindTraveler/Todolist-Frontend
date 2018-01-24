@@ -18,7 +18,7 @@
     <h1>Todos</h1>
     <input #new_todo id="new_todo" type="text" placeholder="What needs to be done?"
            (keydown.enter)="onEnter($event, new_todo)">
-    <div *ngIf="res && res.totalNum > 0">
+    <div *ngIf="res.totalNum > 0">
       <section>
         <input id="toggle_all"type="checkbox"
                [ngModel]="res.isAllCompleted"
